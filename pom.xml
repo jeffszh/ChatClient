@@ -75,6 +75,54 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>testCompile</id>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- 加一个东西，可以生成可运行jar文件。 -->
+			<!-- 试过了可以：Maven中运行 assembly下的assembly:assembly 可生成可执行jar文件。 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- 最终jar包的输出名-->
+					<finalName>ChatClient</finalName>
+					<!-- jar包输出目录，默认在target目录下-->
+					<!--<outputDirectory>out</outputDirectory>-->
+					<appendAssemblyId>false</appendAssemblyId>
+					<archive>
+						<manifest>
+							<!--入口类  -->
+							<mainClass>cn.jeff.chat.app.AppMain</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<!-- 打包的时候会将依赖一起打成一个jar包 -->
+						<descriptorRef>
+							jar-with-dependencies
+						</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
