@@ -1,0 +1,19 @@
+.button {
+    -fx-font-family: Consolas;
+    -fx-font-size: 18;
+}
+
+.label {
+    -fx-font-family: Consolas;
+    -fx-font-size: 16;
+}
+
+.text-area {
+    -fx-font-family: Consolas;
+    -fx-font-size: 16;
+}
+
+.text-field {
+    -fx-font-family: Consolas;
+    -fx-font-size: 16;
+}
